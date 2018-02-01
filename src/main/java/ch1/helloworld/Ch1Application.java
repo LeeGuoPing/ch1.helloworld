@@ -12,11 +12,7 @@ public class Ch1Application implements EmbeddedServletContainerCustomizer{
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Ch1Application.class, args);
-		System.out.println("start success      _     ");
-		System.out.println("start success     | |    ");
-		System.out.println("start success    _| |_    ");
-		System.out.println("start success  _|_| |_|_ ");
-		System.out.println("start success | | | | | |");
+		System.out.println("start success -=-=-=-=-=-=-=");
 	}
 
 	@Override
