@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserReditRestController {
 	
 	@RequestMapping(value="/usercredit/{id}")
-	public Integer getCreditLevel(@PathVariable int idd){
-		return idd;
+	public Integer getCreditLevel(@PathVariable int id){
+		return id;
 	}
 
 }
