@@ -8,7 +8,7 @@ import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletCont
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 
 @SpringBootApplication
-public class Ch1Application implements EmbeddedServletContainerCustomizer{
+public class Ch1Application{
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Ch1Application.class, args);
@@ -17,9 +17,4 @@ public class Ch1Application implements EmbeddedServletContainerCustomizer{
 		System.out.println();
 	}
 
-	@Override
-	public void customize(ConfigurableEmbeddedServletContainer container) {
-		container.setPort(80);
-		
-	}
 }
