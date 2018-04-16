@@ -50,6 +50,12 @@
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
         
+         <!-- Spring Boot Freemarker 依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
+        
         <!-- Spring Boot Mybatis 依赖 -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>

@@ -13,6 +13,7 @@ import ch1.helloworld.domain.City;
 import ch1.helloworld.service.ICityService;
 
 @RestController
+@RequestMapping("/cityrest")
 public class CityRestController {
 	
 	@Autowired
