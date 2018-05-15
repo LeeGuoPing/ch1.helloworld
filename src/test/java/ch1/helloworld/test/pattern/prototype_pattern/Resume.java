@@ -22,11 +22,11 @@ public class Resume implements Cloneable {
 		this.name = name;
 		this.famMem = famMem;
 		work = new WorkExperience();
-	}// Resume
+	}
 	
 	public void setName(String name) {  
         this.name = name;  
-    }// setName  
+    }  
       
     public void setPersonal(String sex, int age) {  
         this.age = age;  
