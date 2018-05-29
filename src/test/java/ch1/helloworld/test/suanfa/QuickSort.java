@@ -13,7 +13,7 @@ import java.util.Arrays;
 public class QuickSort {
 	
 	public static void main(String[] args) {
-		int[] arr = {1,5,2,10,8,7,11,6};
+		int[] arr = {3,5,2,10,8,7,11,6};
 		quickSort(arr);
 		System.out.println(Arrays.toString(arr));
 	}
@@ -26,39 +26,36 @@ public class QuickSort {
 	}
 
 	private static void quickSort(int[] arr, int low, int high) {
-		// 循环结束条件
-		if(low>high){
+		if(low>high){  // 边界条件
 			return;
 		}
 		int i = low;
 		int j = high;
-		
-		// 基准
-		int key = arr[low]; 
+		int key = arr[i];  // 基准值
 		
 		while(i<j){
-			while(i<j && arr[j]>key){
+			while(i<j && key<arr[j]){
 				j--;
 			}
-			while(i<j && arr[i]<=key){
+			while(i<j && key>=arr[i]){
 				i++;
 			}
 			if(i<j){
-				int p = arr[i];
-				arr[i] = arr[j];
-				arr[j] = p;
+				swap(arr,i,j);
 			}
 		}
-		// 4.4，调整key的位置  
-        int p = arr[i];  
-        arr[i] = arr[low];  
-        arr[low] = p;
-        
-        //5, 对key左边的数快排  
-        quickSort(arr, low, i-1 );  
-        //6, 对key右边的数快排  
-        quickSort(arr, i+1, high);  
 		
+		swap(arr,i,low);  // 基准值交换 
+		quickSort(arr,low,i-1);
+		quickSort(arr,i+1,high);
+	}
+
+	private static void swap(int[] arr, int i, int j) {
+		if(i!=j){
+			int temp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = temp;			
+		}
 		
 	}
 }
