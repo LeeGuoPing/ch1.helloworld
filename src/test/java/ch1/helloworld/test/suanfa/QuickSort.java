@@ -13,7 +13,7 @@ import java.util.Arrays;
 public class QuickSort {
 	
 	public static void main(String[] args) {
-		int[] arr = {1,5,2,10,8,7,11,6};
+		int[] arr = {3,5,2,10,8,7,11,6};
 		quickSort(arr);
 		System.out.println(Arrays.toString(arr));
 	}
@@ -25,37 +25,37 @@ public class QuickSort {
 		
 	}
 
-	private static void quickSort(int[] arr, int i, int j) {
-		if(i>j){
+	private static void quickSort(int[] arr, int low, int high) {
+		if(low>high){  // 边界条件
 			return;
 		}
-		int low = i;
-		int high = j;
+		int i = low;
+		int j = high;
+		int key = arr[i];  // 基准值
 		
-		int key = arr[i];
-		while(low<high){
-			while(low<high && arr[low]>key){
-				high--;
+		while(i<j){
+			while(i<j && key<arr[j]){
+				j--;
 			}
-			while(low<high && arr[low]<=key){
-				low++;
+			while(i<j && key>=arr[i]){
+				i++;
 			}
-			
-			if(low<high){
-				swap(arr,low,high);				
+			if(i<j){
+				swap(arr,i,j);
 			}
 		}
-		swap(arr, i, low);
-		quickSort(arr,i,low-1);
-		quickSort(arr,low+1,j);
 		
-		
+		swap(arr,i,low);  // 基准值交换 
+		quickSort(arr,low,i-1);
+		quickSort(arr,i+1,high);
 	}
 
 	private static void swap(int[] arr, int i, int j) {
-		int temp = arr[i];
-		arr[i] = arr[j];
-		arr[j] = temp;
+		if(i!=j){
+			int temp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = temp;			
+		}
 		
 	}
 }
