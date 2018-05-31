@@ -25,40 +25,37 @@ public class QuickSort {
 		
 	}
 
-	private static void quickSort(int[] arr, int low, int high) {
-		// 循环结束条件
-		if(low>high){
+	private static void quickSort(int[] arr, int i, int j) {
+		if(i>j){
 			return;
 		}
-		int i = low;
-		int j = high;
+		int low = i;
+		int high = j;
 		
-		// 基准
-		int key = arr[low]; 
-		
-		while(i<j){
-			while(i<j && arr[j]>key){
-				j--;
+		int key = arr[i];
+		while(low<high){
+			while(low<high && arr[low]>key){
+				high--;
 			}
-			while(i<j && arr[i]<=key){
-				i++;
+			while(low<high && arr[low]<=key){
+				low++;
 			}
-			if(i<j){
-				int p = arr[i];
-				arr[i] = arr[j];
-				arr[j] = p;
+			
+			if(low<high){
+				swap(arr,low,high);				
 			}
 		}
-		// 4.4，调整key的位置  
-        int p = arr[i];  
-        arr[i] = arr[low];  
-        arr[low] = p;
-        
-        //5, 对key左边的数快排  
-        quickSort(arr, low, i-1 );  
-        //6, 对key右边的数快排  
-        quickSort(arr, i+1, high);  
+		swap(arr, i, low);
+		quickSort(arr,i,low-1);
+		quickSort(arr,low+1,j);
 		
+		
+	}
+
+	private static void swap(int[] arr, int i, int j) {
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
 		
 	}
 }
