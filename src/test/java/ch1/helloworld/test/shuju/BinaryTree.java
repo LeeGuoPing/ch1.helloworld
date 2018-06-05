@@ -1,4 +1,8 @@
 package ch1.helloworld.test.shuju;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * 
  * @author liguoping
@@ -57,7 +61,27 @@ public class BinaryTree {
             thePostOrderTraversal(root.getRightNode());  
         }  
         printNode(root);  
-    }  
+    }
+    
+    /**
+     * 借助队列实现层序遍历
+     */
+    public void  levelIterator(Node root){
+    	Queue<Node> queue = new LinkedList<Node>();
+    	if(root!=null){
+    		queue.offer(root);
+    	}
+    	while(!queue.isEmpty()){
+    		Node out = queue.poll();
+    		System.out.print(out.getData());
+    		if(out.getLeftNode()!=null){
+    			queue.add(out.getLeftNode());
+    		}
+    		if(out.getRightNode()!=null){
+    			queue.add(out.getRightNode());
+    		}
+    	}
+    }
       
     public static void main(String[] args) {  
         BinaryTree tree = new BinaryTree();  
@@ -71,6 +95,8 @@ public class BinaryTree {
         System.out.println("后序遍历");  
         tree.thePostOrderTraversal(root);  
         System.out.println(""); 
+        System.out.println("层序遍历");
+        tree.levelIterator(root);
     }  
     
 }
