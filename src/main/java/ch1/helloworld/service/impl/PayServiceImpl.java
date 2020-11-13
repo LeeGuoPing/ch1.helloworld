@@ -39,6 +39,7 @@ public class PayServiceImpl implements PayService {
         // 发布事件
         PayEvent payEvent = new PayEvent(this,bodyMap,"支付");
         springContextUtils.getContext().publishEvent(payEvent);
+        System.out.println("发送...后.....");
         return msg;
     }
 }

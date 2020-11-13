@@ -9,10 +9,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
 
 // mapper 接口类扫描包配置
+@EnableAsync
 @MapperScan("ch1.helloworld.dao")
 public class Ch1Application{
 	

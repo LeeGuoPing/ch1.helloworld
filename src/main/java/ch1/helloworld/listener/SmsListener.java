@@ -2,6 +2,7 @@ package ch1.helloworld.listener;
 
 import ch1.helloworld.event.PayEvent;
 import org.springframework.context.ApplicationListener;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
@@ -12,6 +13,7 @@ import java.util.Map;
  * @author liguoping
  * @since 2020/11/13 14:18
  */
+@Async
 @Component
 public class SmsListener implements ApplicationListener<PayEvent> {
 
