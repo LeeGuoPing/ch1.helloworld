@@ -13,7 +13,7 @@ public class MyLinkedListTest {
 
     @Test
     public void get(){
-        MyLinkedList linkedList = new MyLinkedList();
+        MyDoubleLinkedList linkedList = new MyDoubleLinkedList();
         linkedList.addAtTail(10);
         linkedList.addAtHead(5);
         linkedList.addAtHead(4);
@@ -22,10 +22,13 @@ public class MyLinkedListTest {
         linkedList.addAtHead(1);
         linkedList.addAtTail(6);
         linkedList.addAtTail(7);
+        linkedList.deleteAtIndex(0);
+        linkedList.deleteAtIndex(1);
+        linkedList.deleteAtIndex(5);
         print(linkedList);
     }
 
-    private void print(MyLinkedList linkedList) {
+    private void print(MyDoubleLinkedList linkedList) {
         int size = linkedList.getSize();
         for (int i = 0; i < size; i++) {
             System.out.print(linkedList.get(i)+" --> ");
